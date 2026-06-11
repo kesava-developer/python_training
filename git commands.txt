@@ -1,0 +1,114 @@
+Git Commands - Beginner Friendly Cheatsheet
+
+Overview
+- Git is a distributed version control system. Use it to track changes, collaborate, and manage branches.
+
+Quick setup
+- Configure your identity (once per machine):
+	git config --global user.name "Your Name"
+	git config --global user.email "you@example.com"
+
+Create a new repository (locally -> GitHub/GitLab)
+- Create locally and push to remote:
+	mkdir my-project
+	cd my-project
+	git init
+	# create files and commit
+	git add .
+	git commit -m "Initial commit"
+	# create repo on GitHub (web) and add remote, then push
+	git remote add origin git@github.com:username/my-project.git
+	git branch -M main
+	git push -u origin main
+
+Clone an existing repository
+- Copy a remote repo to your machine:
+	git clone git@github.com:username/repo.git
+	cd repo
+
+Check status and history
+- Show changed files and staged files:
+	git status
+- View commit history (simple):
+	git log --oneline --graph --decorate
+
+Working with changes
+- Stage changes for commit:
+	git add <file>       # stage a single file
+	git add .            # stage all changes in the current folder
+- Commit staged changes:
+	git commit -m "Short, meaningful message"
+- Amend the last commit (if you forgot something):
+	git add <forgot-file>
+	git commit --amend --no-edit
+
+Branches (create, switch, branch from another)
+- List branches:
+	git branch
+- Create a new branch and switch to it:
+	git checkout -b feature/awesome
+	# or with newer Git: git switch -c feature/awesome
+- Create a branch from a specific base branch:
+	git checkout -b feature/awesome origin/main
+	# or: git switch -c feature/awesome origin/main
+- Switch to an existing branch:
+	git checkout main
+	# or: git switch main
+- Delete a local branch:
+	git branch -d feature/awesome
+
+Syncing with remote (push & pull)
+- Fetch remote changes (download refs only):
+	git fetch origin
+- Pull remote changes and merge into current branch:
+	git pull origin main
+	# shorthand: git pull (if tracking is set)
+- Push local commits to remote branch:
+	git push origin feature/awesome
+	# push and set upstream: git push -u origin feature/awesome
+
+Resolving conflicts
+- If a merge or pull creates conflicts, Git will mark conflicted files. Edit the files, remove conflict markers, then:
+	git add <resolved-file>
+	git commit            # complete the merge commit
+
+Creating a pull request (PR) - basic flow
+1. Create a branch for your change (feature/bugfix) and work locally.
+	 git checkout -b feature/short-description
+2. Make changes, run tests, stage and commit:
+	 git add .
+	 git commit -m "Add feature X"
+3. Push the branch to the remote and open a PR on the hosting service:
+	 git push -u origin feature/short-description
+4. On GitHub/GitLab/Bitbucket: open a Pull Request / Merge Request from your branch into `main` (or the target branch).
+5. Address review comments, then update your branch locally and push additional commits:
+	 git add .
+	 git commit -m "Address review feedback"
+	 git push
+6. Once approved, merge the PR on the remote. Optionally delete the branch locally and remotely:
+	 git branch -d feature/short-description
+	 git push origin --delete feature/short-description
+
+Useful tips and commands
+- See the differences between working files and last commit:
+	git diff            # unstaged changes
+	git diff --staged   # staged changes
+- Stash work in progress (clean working tree temporarily):
+	git stash save "WIP: short note"
+	git stash list
+	git stash pop       # re-apply and remove from stash
+- Create a signed or annotated tag for a release:
+	git tag -a v1.0.0 -m "Release v1.0.0"
+	git push origin v1.0.0
+
+Recommended workflow for beginners
+- Keep `main` (or `master`) stable and deployable.
+- Create short-lived feature branches for work.
+- Commit often with clear messages and push regularly.
+- Open PRs for review and use CI to run tests on PRs.
+
+Further learning
+- Official Git docs: https://git-scm.com/docs
+- GitHub guides: https://guides.github.com/
+
+EOF
