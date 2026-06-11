@@ -7,3 +7,4 @@ if __name__ == "__main__":
     example_name = "World"
     print(greet(example_name))
     print(greet("Alice"))
+    print(greet("venkatesh"))
