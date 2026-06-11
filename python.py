@@ -34,3 +34,4 @@ data = "now a string"
 print("data before:", data)
 data = 100
 print("data after:", data)
+print("data type after change:",type(data))
