@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Musafir Cafe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Colorful • Cozy • Crafted</p>
+        <h1>Musafir Cafe</h1>
+        <p class="subtitle">A vibrant place for coffee lovers, warm conversations, and premium memberships.</p>
+        <button class="primary-btn" onclick="document.getElementById('membership').scrollIntoView({behavior:'smooth'})">Explore Memberships</button>
+      </div>
+      <div class="hero-card">
+        <h3>Today’s Special</h3>
+        <p>Sunrise Latte with caramel bloom and a pastry pairing.</p>
+      </div>
+    </header>
+
+    <main>
+      <section id="membership" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Premium choices</p>
+          <h2>Pick your favorite café experience</h2>
+        </div>
+        <div id="package-grid" class="package-grid"></div>
+      </section>
+
+      <section class="section form-section">
+        <div class="section-heading">
+          <p class="eyebrow">Join the club</p>
+          <h2>Enroll for exclusive perks</h2>
+        </div>
+        <form id="enroll-form" class="enroll-form">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Your email" required />
+          <select id="package">
+            <option value="">Choose a package</option>
+          </select>
+          <button type="submit" class="primary-btn">Enroll Now</button>
+        </form>
+        <p id="form-message" class="form-message"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+:root {
+  --bg: #fff7ef;
+  --card: #ffffff;
+  --text: #2b1d17;
+  --accent: #ff7a59;
+  --accent-2: #ffb347;
+  --accent-3: #6c63ff;
+  --muted: #7c6d65;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #fff3e6, #ffe9f5 60%, #eaf4ff);
+  color: var(--text);
+}
+.page-shell { max-width: 1200px; margin: 0 auto; padding: 24px; }
+.hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  border-radius: 28px;
+  padding: 32px;
+  color: white;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+}
+.hero h1 { font-size: 3rem; margin: 6px 0; }
+.subtitle { font-size: 1.05rem; line-height: 1.6; max-width: 560px; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.25em; font-weight: 700; font-size: 0.8rem; opacity: 0.85; }
+.primary-btn {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--text);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+}
+.hero-card {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 20px;
+  align-self: center;
+}
+.section { margin-top: 28px; }
+.section-heading { margin-bottom: 16px; }
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.package-card {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(22, 15, 10, 0.08);
+}
+.package-card h3 { margin-top: 0; }
+.tag { display: inline-block; padding: 6px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; background: #ffe8dd; color: #a14c2b; }
+.price { font-size: 1.2rem; font-weight: 800; color: var(--accent-3); }
+ul { padding-left: 18px; color: var(--muted); }
+.form-section { background: white; border-radius: 24px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.enroll-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.enroll-form input, .enroll-form select {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #eadfda;
+  font: inherit;
+}
+.form-message { margin-top: 12px; font-weight: 600; color: #2f7d32; }
+@media (max-width: 900px) {
+  .hero, .package-grid, .enroll-form { grid-template-columns: 1fr; }
+}
